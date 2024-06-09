@@ -7,7 +7,7 @@
  <a href="https://youtu.be/zL_mrPkXowY?si=h2Igh92ksW_7V-Uy">
   <img src="https://raw.githubusercontent.com/developer9998/GorillaShotForce/main/vlcsnap-00067.png" style="display: block; margin-left: auto; margin-right: auto; width=50%;">
  </a>
-  <p align="center">GorillaFaces is a gameplay mod for Gorilla Tag that will launch the player when they launch or throw a projectile in a modded room.</p>
+  <p align="center">GorillaShotForce is a gameplay mod for Gorilla Tag that will launch the player when they launch or throw a projectile in a modded room.</p>
 </div>
 
 # Instructions
