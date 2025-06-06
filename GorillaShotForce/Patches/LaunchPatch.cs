@@ -12,7 +12,7 @@ namespace GorillaShotForce.Patches
         public static void Prefix(Vector3 position, Vector3 velocity, NetPlayer player)
         {
             bool isLocal = player.IsLocal;
-            bool inClump = !isLocal && Vector3.Distance(GorillaLocomotion.Player.Instance.bodyCollider.transform.position, position) <= 1f;
+            bool inClump = !isLocal && Vector3.Distance(GorillaLocomotion.GTPlayer.Instance.bodyCollider.transform.position, position) <= 1f;
             if (isLocal || inClump)
             {
                 _shotForceEvents ??= new ShotForceEvents();

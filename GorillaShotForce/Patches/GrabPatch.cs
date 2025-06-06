@@ -11,12 +11,12 @@ namespace GorillaShotForce.Patches
         {
             if (__instance.itemState == TransferrableObject.ItemStates.State2 || __instance.itemState == TransferrableObject.ItemStates.State3)
             {
-                Rigidbody rb = Player.Instance.bodyCollider.attachedRigidbody;
+                Rigidbody rb = GTPlayer.Instance.bodyCollider.attachedRigidbody;
                 Vector3 velocity = rb.velocity * 0.995f;
 
-                Player.Instance.currentVelocity = velocity;
+                GTPlayer.Instance.GetComponent<Rigidbody>().velocity = velocity;
                 rb.velocity = velocity;
-                rb.AddForce(Physics.gravity * -0.4f * rb.mass * Player.Instance.scale);
+                rb.AddForce(Physics.gravity * -0.4f * rb.mass * GTPlayer.Instance.scale);
             }
         }
     }

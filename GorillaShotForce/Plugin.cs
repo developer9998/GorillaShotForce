@@ -7,10 +7,14 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using Utilla;
+using Utilla.Attributes;
 
 namespace GorillaShotForce
 {
-    [BepInPlugin(Constants.GUID, Constants.Name, Constants.Version), ModdedGamemode, BepInDependency("org.legoandmars.gorillatag.utilla", "1.6.12"), BepInDependency("dev.auros.bepinex.bepinject", "1.0.1")]
+    [ModdedGamemode]
+    [BepInPlugin(Constants.GUID, Constants.Name, Constants.Version)]
+    [BepInDependency("org.legoandmars.gorillatag.utilla", "1.6.12")]
+    [BepInDependency("dev.auros.bepinex.bepinject", "1.0.1")]
     public class Plugin : BaseUnityPlugin
     {
         private AssetLoader _assetLoader;
@@ -20,7 +24,7 @@ namespace GorillaShotForce
 
         private Harmony _harmony;
 
-        private Player _player;
+        private GTPlayer _player;
 
         private List<AudioClip> _launchSFX;
         private AudioClip _intenseLaunchSFX;
@@ -40,7 +44,7 @@ namespace GorillaShotForce
         {
             try
             {
-                _player = Player.Instance;
+                _player = GTPlayer.Instance;
 
                 _launchSFX = new List<AudioClip>()
                 {
@@ -68,7 +72,7 @@ namespace GorillaShotForce
                 _lastLaunch = Time.realtimeSinceStartup + _config.LaunchCooldown.Value;
 
                 velocity *= _config.LaunchMultiplier.Value;
-                _player.currentVelocity = velocity;
+                GTPlayer.Instance.GetComponent<Rigidbody>().velocity = velocity;
                 _player.bodyCollider.attachedRigidbody.velocity = velocity;
 
                 float distanceMagnitude = Vector3.Distance(_player.transform.position, _player.transform.position + velocity);
